@@ -1,5 +1,5 @@
 repository:
-   description: Test description Heh
+   description: Test description
 
 labels:
      - name: bug
