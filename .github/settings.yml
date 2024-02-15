@@ -1,6 +1,6 @@
 repository:
    description: Test description
-
+pr_workflow_type: devops
 labels:
      - name: bug
        color: CC0000
