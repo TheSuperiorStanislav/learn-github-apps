@@ -3,7 +3,7 @@ repository:
 
 labels:
   - name: automated-pr
-    color: #1316F2
+    color: 1316F2
     description: An PR created by automation 1
 
 autolinks:
