@@ -1,7 +1,13 @@
 repository:
-   description: Test description
-pr_workflow_type: devops
+   description: Test
+
 labels:
-  - name: bug
-    color: CC0000
-    description: An issue with the system
+  - name: automated-pr
+    color: '#1316F2'
+    description: An PR created by automation
+
+autolinks:
+  - key_prefix: SD
+    url_template: https://somewhere.atlassian.net/browse/SD-<num>
+  - key_prefix: SA3P
+    url_template: https://somewhere.atlassian.net/browse/SA3P-<num>
