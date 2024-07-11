@@ -2,6 +2,6 @@ repository:
    description: Test description
 pr_workflow_type: devops
 labels:
-     - name: bug
-       color: CC0000
-       description: An issue with the system
+  - name: bug
+    color: CC0000
+    description: An issue with the system
