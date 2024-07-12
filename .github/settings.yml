@@ -8,6 +8,6 @@ labels:
 
 autolinks:
   - key_prefix: SD-
-    url_template: https://somewheere.atlassian.net/browse/SD-<num>
+    url_template: https://somewheere.atlassian.net/browse/SD-
   - key_prefix: SA3P-
     url_template: https://somewhere.atlassian.net/browse/SA3P-<num>
