@@ -7,7 +7,7 @@ labels:
     description: An PR created by automation 1
 
 autolinks:
-  - key_prefix: SD
+  - key_prefix: SD-
     url_template: https://somewheere.atlassian.net/browse/SD-<num>
-  - key_prefix: SA3P
+  - key_prefix: SA3P-
     url_template: https://somewhere.atlassian.net/browse/SA3P-<num>
