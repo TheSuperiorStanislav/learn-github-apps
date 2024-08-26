@@ -1,6 +1,5 @@
 repository:
    description: Test12
-   homepage: 
 
 labels:
   - name: automated-pr
