@@ -1,6 +1,6 @@
 repository:
    description: Test12
-   website: https://github.com/TheSuperiorStanislav
+   homepage: https://github.com/TheSuperiorStanislav
 
 labels:
   - name: automated-pr
