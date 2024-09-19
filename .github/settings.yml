@@ -5,6 +5,9 @@ labels:
   - name: automated-pr
     color: 1316F2
     description: An PR created by automation 1
+  - name: wip
+    color: BD33A4
+    description: In development
 
 autolinks:
   - key_prefix: SD-
