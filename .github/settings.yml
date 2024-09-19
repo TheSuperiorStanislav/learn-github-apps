@@ -10,7 +10,7 @@ labels:
     description: In development
 
 autolinks:
-  - key_prefix: SD-
+  - key_prefix: SD
     url_template: https://somewheere.atlassian.net/browse/SD--<num>
   - key_prefix: SA3P-
     url_template: https://somewhere.atlassian.net/browse/SA3P-<num>
