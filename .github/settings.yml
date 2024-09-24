@@ -8,6 +8,15 @@ labels:
   - name: wip
     color: BD33A4
     description: In development
+  - name: test3
+    color: 848482
+    description: test3
+  - name: test4
+    color: 130853
+    description: test4
+  - name: Needs Review
+    color: 008000
+    description: Ready for review
 
 autolinks:
   - key_prefix: SD-
