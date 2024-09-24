@@ -8,7 +8,7 @@ labels:
   - name: wip
     color: BD33A4
     description: In development
-  - name: test3
+  - name: test33
     color: 848482
     description: test3
   - name: test4
