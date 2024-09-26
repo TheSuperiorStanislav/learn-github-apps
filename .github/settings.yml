@@ -3,7 +3,7 @@ repository:
 
 labels:
   - name: Needs Review
-    color: 008000
+    color: 000000
     description: Ready for review
 
 autolinks:
