@@ -1,25 +1,31 @@
 repository:
-   description: Test12
+  description: IOS For Saritasa-Ios
 
 labels:
-  - name: automated-pr
-    color: 1316F2
-    description: An PR created by automation 1
-  - name: wip
-    color: BD33A4
-    description: In development
-  - name: test33
-    color: 848482
-    description: test3
-  - name: test4
-    color: 130853
-    description: test4
   - name: Needs Review
     color: 008000
     description: Ready for review
 
+  - name: wip
+    color: BD33A4
+    description: In development
+
+  - name: enhancement
+    color: F0F8FF
+    description: New feature or request
+
+  - name: docs
+    color: EED9C4
+    description: Improvements or additions to documentation
+
+  - name: bug
+    color: 848482
+    description: Something isn't working
+
+  - name: urgent
+    color: C41E3A
+    description: Urgently for review
+
 autolinks:
-  - key_prefix: SD-
-    url_template: https://somewheere.atlassian.net/browse/SD--<num>
-  - key_prefix: SA3P-
-    url_template: https://somewhere.atlassian.net/browse/SA3P-<num>
+  - key_prefix: SD
+    url_template: https://saritasa.atlassian.net/browse/SD-<num>
