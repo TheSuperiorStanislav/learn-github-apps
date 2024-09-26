@@ -1,5 +1,5 @@
 repository:
-  description: IOS For Saritasa-Ios
+  description: IOS App For
 
 labels:
   - name: Needs Review
@@ -27,5 +27,5 @@ labels:
     description: Urgently for review
 
 autolinks:
-  - key_prefix: SD
-    url_template: https://saritasa.atlassian.net/browse/SD-<num>
+  - key_prefix: TEST
+    url_template: https://saritasa.atlassian.net/browse/TEST-<num>
