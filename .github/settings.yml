@@ -5,6 +5,10 @@ labels:
   - name: Needs Review
     color: FFF123
     description: Ready for review
+regex_labels:
+  - regex: \d+\.\d+\.\d+
+    color: FFFFFF
+    description: Version labels
 
 autolinks:
   - key_prefix: TEST
