@@ -1,7 +1,5 @@
 repository:
   description: IOS App For TEST1
-  default_branch: develop
-
 labels:
   - name: Needs Review
     color: FFF123
