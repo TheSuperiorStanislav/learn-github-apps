@@ -40,7 +40,7 @@ rulesets:
             - context: success
       - type: non_fast_forward
       - type: deletion
-      - type: required_linear_history
+      # - type: required_linear_history
       # - type: commit_author_email_pattern
       #   parameters:
       #     operator: contains
