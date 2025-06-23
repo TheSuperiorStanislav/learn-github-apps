@@ -45,11 +45,11 @@ rulesets:
         parameters:
           operator: contains
           pattern: saritasa.com
-      - type: file_path_restriction
-        parameters:
-          restricted_file_paths:
-            - repos/
-            - LICENSE.md
+      # - type: file_path_restriction
+      #   parameters:
+      #     restricted_file_paths:
+      #       - repos/
+      #       - LICENSE.md
       # - type: file_extension_restriction
       #   parameters:
       #     restricted_file_extensions:
