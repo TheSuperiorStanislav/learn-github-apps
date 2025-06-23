@@ -56,6 +56,6 @@ rulesets:
             - bak
             - zip
             - swp
-      - type: max_file_size
-        parameters:
-          max_file_size: 1
+      # - type: max_file_size
+      #   parameters:
+      #     max_file_size: 1
