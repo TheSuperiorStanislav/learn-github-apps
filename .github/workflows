@@ -1,0 +1,26 @@
+name: Run pre-commmit hooks
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  success:
+    timeout-minutes: 10
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run
+      run: |
+        exit 0
+  fail:
+    timeout-minutes: 10
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run
+      run: |
+        exit 1
