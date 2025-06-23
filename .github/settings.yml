@@ -23,7 +23,7 @@ rulesets:
       ref_name:
         include:
           - refs/heads/main
-          - refs/heads/staging/
+          - refs/heads/staging
           - refs/heads/releases/**/*
           - refs/heads/develop
         exclude: []
