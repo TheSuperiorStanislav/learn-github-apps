@@ -15,18 +15,18 @@ autolinks:
   - key_prefix: TEST
     url_template: https://saritasa.atlassian.net/browse/TEST-<num>
 
-rulesets:
-  - name: branch-protection
-    target: branch
-    enforcement: disabled
-    conditions:
-      ref_name:
-        include:
-          - refs/heads/main
-          - refs/heads/staging
-          - refs/heads/releases/**/*
-          - refs/heads/develop
-        exclude: []
+# rulesets:
+#   - name: branch-protection
+#     target: branch
+#     enforcement: disabled
+#     conditions:
+#       ref_name:
+#         include:
+#           - refs/heads/main
+#           - refs/heads/staging
+#           - refs/heads/releases/**/*
+#           - refs/heads/develop
+#         exclude: []
     # rules:
     #   - type: pull_request
     #     parameters:
