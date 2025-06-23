@@ -41,6 +41,7 @@ rulesets:
       - type: non_fast_forward
       - type: deletion
       - type: required_linear_history
+      # Not supported on my account
       # - type: commit_author_email_pattern
       #   parameters:
       #     operator: contains
