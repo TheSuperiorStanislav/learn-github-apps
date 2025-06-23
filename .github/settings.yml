@@ -41,10 +41,10 @@ rulesets:
       - type: non_fast_forward
       - type: deletion
       - type: required_linear_history
-      - type: commit_author_email_pattern
-        parameters:
-          operator: contains
-          pattern: saritasa.com
+      # - type: commit_author_email_pattern
+      #   parameters:
+      #     operator: contains
+      #     pattern: saritasa.com
       # - type: file_path_restriction
       #   parameters:
       #     restricted_file_paths:
