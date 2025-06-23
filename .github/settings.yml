@@ -25,7 +25,7 @@ rulesets:
           - refs/heads/main
           - refs/heads/staging/
           - refs/heads/releases/**/*
-          - refs/develop
+          - refs/heads/develop
         exclude: []
     rules:
       # - type: pull_request
