@@ -14,3 +14,48 @@ regex_labels:
 autolinks:
   - key_prefix: TEST
     url_template: https://saritasa.atlassian.net/browse/TEST-<num>
+
+rulesets:
+ - name: branch-protection-ruleset
+    target: branch
+    enforcement: active
+    conditions:
+      ref_name:
+        include:
+          - refs/heads/main
+          - refs/heads/staging/
+          - refs/heads/releases/**/*
+          - refs/develop
+        exclude: []
+    rules:
+      - type: pull_request
+        parameters:
+          dismiss_stale_reviews_on_push: false
+          require_code_owner_review: false
+          required_approving_review_count: 1
+          required_review_thread_resolution: true
+      - type: required_status_checks
+        parameters:
+          required_status_checks:
+            - context: success
+      - type: non_fast_forward
+      - type: deletion
+      - type: required_linear_history
+      - type: commit_author_email_pattern
+        parameters:
+          operator: contains
+          pattern: saritasa.com
+      - type: file_path_restriction
+        parameters:
+          restricted_file_paths:
+            - repos/
+            - LICENSE.md
+      - type: file_extension_restriction
+        parameters:
+          restricted_file_extensions:
+            - bak
+            - zip
+            - swp
+      - type: max_file_size
+        parameters:
+          max_file_size: 1
