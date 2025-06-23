@@ -25,7 +25,7 @@ rulesets:
           dismiss_stale_reviews_on_push: false
           require_code_owner_review: false
           required_approving_review_count: 0
-          required_review_thread_resolution: true
+          required_review_thread_resolution: false
       - type: non_fast_forward
       - type: deletion
       - type: required_linear_history
