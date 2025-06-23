@@ -38,24 +38,24 @@ rulesets:
         parameters:
           required_status_checks:
             - context: success
-      # - type: non_fast_forward
-      # - type: deletion
-      # - type: required_linear_history
-      # - type: commit_author_email_pattern
-      #   parameters:
-      #     operator: contains
-      #     pattern: saritasa.com
-      # - type: file_path_restriction
-      #   parameters:
-      #     restricted_file_paths:
-      #       - repos/
-      #       - LICENSE.md
-      # - type: file_extension_restriction
-      #   parameters:
-      #     restricted_file_extensions:
-      #       - bak
-      #       - zip
-      #       - swp
-      # - type: max_file_size
-      #   parameters:
-      #     max_file_size: 1
+      - type: non_fast_forward
+      - type: deletion
+      - type: required_linear_history
+      - type: commit_author_email_pattern
+        parameters:
+          operator: contains
+          pattern: saritasa.com
+      - type: file_path_restriction
+        parameters:
+          restricted_file_paths:
+            - repos/
+            - LICENSE.md
+      - type: file_extension_restriction
+        parameters:
+          restricted_file_extensions:
+            - bak
+            - zip
+            - swp
+      - type: max_file_size
+        parameters:
+          max_file_size: 1
