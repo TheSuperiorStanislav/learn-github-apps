@@ -18,7 +18,16 @@ autolinks:
 rulesets:
   - name: branch-protection
     target: branch
-    enforcement: active
+    branches:
+      - develop
+      - staging
+      - main
+    conditions:
+      ref_name:
+        include:
+          - refs/heads/staging
+          - refs/heads/releases/**/*
+    enforcement: disabled
     rules:
       - type: non_fast_forward
       - type: deletion
