@@ -1,5 +1,7 @@
-repository:
-  description: Test!
+repository:  
+  description: |
+    This repository
+    Does stuff
 
 labels:
   - name: Needs Review
