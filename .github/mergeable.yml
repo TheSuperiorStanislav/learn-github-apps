@@ -1,0 +1,48 @@
+version: 2
+mergeable:
+  - when: pull_request.*
+    name: Check size
+    filter:
+    - do: not
+      filter:
+        do: or
+        filter:
+          - do payload:
+            base:
+              must_include:
+                regex: 'develop'
+                key: 'ref'
+            head:
+              must_include:
+                regex: feature/SA3P-22-big-pr
+                key: 'ref'
+          - do payload:
+            base:
+              ref: staging
+            head:
+              ref: develop
+          - do payload:
+            base:
+              ref: main
+            head:
+              ref: staging
+          - do payload:
+            base:
+              ref: develop
+            head:
+              ref: staging
+          - do payload:
+            base:
+              ref: develop
+            head:
+              ref: main
+    validate:
+      - do: size
+        ignore: [
+          'poetry.lock',
+          '**/migrations/**',
+        ]
+        lines:
+          max:
+            count: 2000
+            message: The PR is big, pls consider splitting it
