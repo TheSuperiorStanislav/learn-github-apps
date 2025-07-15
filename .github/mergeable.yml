@@ -9,11 +9,11 @@ mergeable:
         filter:
           - do payload:
             base:
-              must_include:
+              must_exclude:
                 regex: 'main'
                 key: 'ref'
             head:
-              must_include:
+              must_exclude:
                 regex: 'TheSuperiorStanislav-patch-5'
                 key: 'ref'
           - do payload:
