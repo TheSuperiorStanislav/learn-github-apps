@@ -19,7 +19,7 @@ autolinks:
 
 rulesets:
   - name: branch-protection
-    target: qwerty
+    target: branch
     branches:
       - develop
       - staging
