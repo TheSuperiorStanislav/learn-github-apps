@@ -33,7 +33,7 @@ rulesets:
     rules:
       - type: non_fast_forward
       - type: deletion
-      - type: required_linear_history
+      # - type: required_linear_history
       # They do not work on my account
       # - type: commit_author_email_pattern
       #   parameters:
