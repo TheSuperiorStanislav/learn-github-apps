@@ -9,13 +9,13 @@ mergeable:
         filter:
           - do payload:
             base:
-              must_exclude:
-                regex: 'main'
-                key: 'ref'
+              ref:
+                must_exclude:
+                  regex: 'main'
             head:
-              must_exclude:
-                regex: 'TheSuperiorStanislav-patch-5'
-                key: 'ref'
+              ref:
+                must_exclude:
+                  regex: 'TheSuperiorStanislav-patch-5'
     validate:
       - do: size
         ignore: [
