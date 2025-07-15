@@ -14,7 +14,7 @@ mergeable:
                 key: 'ref'
             head:
               must_include:
-                regex: feature/SA3P-22-big-pr
+                regex: TheSuperiorStanislav-patch-5
                 key: 'ref'
           - do payload:
             base:
