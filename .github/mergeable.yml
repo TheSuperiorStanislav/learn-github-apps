@@ -16,26 +16,6 @@ mergeable:
               must_exclude:
                 regex: 'TheSuperiorStanislav-patch-5'
                 key: 'ref'
-          - do payload:
-            base:
-              ref: staging
-            head:
-              ref: develop
-          - do payload:
-            base:
-              ref: main
-            head:
-              ref: staging
-          - do payload:
-            base:
-              ref: develop
-            head:
-              ref: staging
-          - do payload:
-            base:
-              ref: develop
-            head:
-              ref: main
     validate:
       - do: size
         ignore: [
