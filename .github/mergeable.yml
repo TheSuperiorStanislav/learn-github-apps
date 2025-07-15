@@ -10,11 +10,11 @@ mergeable:
           - do payload:
             base:
               must_include:
-                regex: 'develop'
+                regex: 'main'
                 key: 'ref'
             head:
               must_include:
-                regex: TheSuperiorStanislav-patch-5
+                regex: 'TheSuperiorStanislav-patch-5'
                 key: 'ref'
           - do payload:
             base:
