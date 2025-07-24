@@ -1,14 +1,9 @@
 [tool.poetry]
 package-mode = false
 
-[project]
-name = "learn-github-apps"
-version = "0.0.0"
-requires-python = ">=3.13"
-classifiers = ["Private :: Do Not Upload"]
-dependencies = [
-    "django>=5"
-]
+[tool.poetry.dependencies]
+python = "^3.13"
+django = "^5"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
