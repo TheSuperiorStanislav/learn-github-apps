@@ -1,0 +1,33 @@
+version: 2
+mergeable:
+  - when: pull_request.*
+    name: Check size
+    filter:
+    - do: not
+      filter:
+        do: or
+        filter:
+          - do payload:
+            base:
+              ref:
+                must_exclude:
+                  regex: 'main'
+            head:
+              ref:
+                must_exclude:
+                  regex: 'TheSuperiorStanislav-patch-5'
+    validate:
+      - do: or
+        validate:
+        - do: size
+          ignore: [
+            'poetry.lock',
+            '**/migrations/**',
+          ]
+          lines:
+            max:
+              count: 2000
+              message: "The PR is big, pls consider splitting it(If it's merge between develop/staging/main add `release-branch-update` label)"
+        - do: label
+          must_include:
+            regex: \brelease-branch-update\b
