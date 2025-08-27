@@ -1,7 +1,7 @@
 pr_workflow_type: devops
 repository:  
   description: |
-    This repository..
+    This repository.
     Does stuff 1212
 
 labels:
