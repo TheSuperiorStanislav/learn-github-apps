@@ -1,4 +1,4 @@
-pr_workflow_type: devops
+pr_workflow_type: python
 repository:  
   description: |
     This repository.
