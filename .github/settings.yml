@@ -1,4 +1,4 @@
-pr_workflow_type: devops
+pr_workflow_type: python
 repository:  
   description: |
     This repository
@@ -16,4 +16,4 @@ regex_labels:
 
 autolinks:
   - key_prefix: TEST
-    url_template: https://saritasa.atlassian.net/browse/TEST-<num>
+    url_template: https://saritasa.atlassian.net/browse/TEST
