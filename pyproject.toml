@@ -8,15 +8,15 @@ authors = [
 readme = "README.md"
 requires-python = "3.13.*"
 dependencies = [
-    "django==5.0.0",
+    "django==5.2.7",
 ]
 
 [dependency-groups]
 dev = [
-    "saritasa-invocations==1.0.0",
+    "saritasa-invocations==1.7.0",
 ]
 local =[
-    "redis==6.0.0",
+    "redis==6.4.0",
 ]
 
 [build-system]
