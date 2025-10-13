@@ -15,6 +15,12 @@ jobs:
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@v4
+    - name: Set up Python
+      id: install-python
+      uses: actions/setup-python@v6
+      with:
+        python-version: ""
+        python-version-file: "pyproject.toml"
     - name: Run
       run: |
         exit 0
