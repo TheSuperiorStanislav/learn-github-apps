@@ -13,7 +13,3 @@ regex_labels:
   - regex: \d+\.\d+\.\d+
     color: FFFFFF
     description: Version labels
-
-autolinks:
-  - key_prefix: TEST
-    url_template: https://saritasa.atlassian.net/browse/TEST
