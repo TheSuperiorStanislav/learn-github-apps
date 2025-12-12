@@ -18,7 +18,6 @@ rulesets:
   - name: all-branch
     branches:
       - ~ALL
-      - staging
     rules:
       # Prevent users with push access from force pushing
       - type: non_fast_forward
