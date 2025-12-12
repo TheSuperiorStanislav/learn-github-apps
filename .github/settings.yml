@@ -13,3 +13,14 @@ regex_labels:
   - regex: \d+\.\d+\.\d+
     color: FFFFFF
     description: Version labels
+
+rulesets:
+  - name: all-branch
+    branches:
+      - ~ALL
+      - staging
+    rules:
+      # Prevent users with push access from force pushing
+      - type: non_fast_forward
+      # Protect branch from deletion
+      - type: deletion
