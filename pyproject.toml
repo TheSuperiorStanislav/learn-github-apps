@@ -13,10 +13,10 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "saritasa-invocations==1.0.0",
+    "saritasa-invocations==1.7.0",
 ]
 local =[
-    "redis==6.0.0",
+    "redis==7.1.0",
 ]
 
 [build-system]
