@@ -17,24 +17,24 @@ tests = ["mypy (>=1.14.0)", "pytest", "pytest-asyncio"]
 
 [[package]]
 name = "django"
-version = "5.0"
+version = "6.0.1"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
 optional = false
-python-versions = ">=3.10"
+python-versions = ">=3.12"
 groups = ["main"]
 files = [
-    {file = "Django-5.0-py3-none-any.whl", hash = "sha256:3a9fd52b8dbeae335ddf4a9dfa6c6a0853a1122f1fb071a8d5eca979f73a05c8"},
-    {file = "Django-5.0.tar.gz", hash = "sha256:7d29e14dfbc19cb6a95a4bd669edbde11f5d4c6a71fdaa42c2d40b6846e807f7"},
+    {file = "django-6.0.1-py3-none-any.whl", hash = "sha256:a92a4ff14f664a896f9849009cb8afaca7abe0d6fc53325f3d1895a15253433d"},
+    {file = "django-6.0.1.tar.gz", hash = "sha256:ed76a7af4da21551573b3d9dfc1f53e20dd2e6c7d70a3adc93eedb6338130a5f"},
 ]
 
 [package.dependencies]
-asgiref = ">=3.7.0"
-sqlparse = ">=0.3.1"
+asgiref = ">=3.9.1"
+sqlparse = ">=0.5.0"
 tzdata = {version = "*", markers = "sys_platform == \"win32\""}
 
 [package.extras]
-argon2 = ["argon2-cffi (>=19.1.0)"]
-bcrypt = ["bcrypt"]
+argon2 = ["argon2-cffi (>=23.1.0)"]
+bcrypt = ["bcrypt (>=4.1.1)"]
 
 [[package]]
 name = "invoke"
@@ -101,19 +101,20 @@ windows-terminal = ["colorama (>=0.4.6)"]
 
 [[package]]
 name = "redis"
-version = "6.0.0"
+version = "7.1.0"
 description = "Python client for Redis database and key-value store"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.10"
 groups = ["local"]
 files = [
-    {file = "redis-6.0.0-py3-none-any.whl", hash = "sha256:a2e040aee2cdd947be1fa3a32e35a956cd839cc4c1dbbe4b2cdee5b9623fd27c"},
-    {file = "redis-6.0.0.tar.gz", hash = "sha256:5446780d2425b787ed89c91ddbfa1be6d32370a636c8fdb687f11b1c26c1fa88"},
+    {file = "redis-7.1.0-py3-none-any.whl", hash = "sha256:23c52b208f92b56103e17c5d06bdc1a6c2c0b3106583985a76a18f83b265de2b"},
+    {file = "redis-7.1.0.tar.gz", hash = "sha256:b1cc3cfa5a2cb9c2ab3ba700864fb0ad75617b41f01352ce5779dabf6d5f9c3c"},
 ]
 
 [package.extras]
-hiredis = ["hiredis (>=3.0.0)"]
-jwt = ["pyjwt (>=2.9.0,<2.10.0)"]
+circuit-breaker = ["pybreaker (>=1.4.0)"]
+hiredis = ["hiredis (>=3.2.0)"]
+jwt = ["pyjwt (>=2.9.0)"]
 ocsp = ["cryptography (>=36.0.1)", "pyopenssl (>=20.0.1)", "requests (>=2.31.0)"]
 
 [[package]]
@@ -137,19 +138,19 @@ jupyter = ["ipywidgets (>=7.5.1,<9)"]
 
 [[package]]
 name = "saritasa-invocations"
-version = "1.0.0"
+version = "1.9.0"
 description = "Collection of invoke commands used by Saritasa"
 optional = false
-python-versions = ">=3.10,<4.0"
+python-versions = ">=3.10"
 groups = ["dev"]
 files = [
-    {file = "saritasa_invocations-1.0.0-py3-none-any.whl", hash = "sha256:92cd01c094780e67933dcca6805e0dd8716d29a877a7bb5ed87dc507ac285730"},
-    {file = "saritasa_invocations-1.0.0.tar.gz", hash = "sha256:e7ae2bf6da29125d8b62bad519c38d401b6d98e4b137dad15a21b7dce4b3e1a8"},
+    {file = "saritasa_invocations-1.9.0-py3-none-any.whl", hash = "sha256:837493fc7988b2b76cb6802960e36504afcaadcef1d47634773001754e3b7a64"},
+    {file = "saritasa_invocations-1.9.0.tar.gz", hash = "sha256:6601bd507f83811a4be1229a49afd3285fb40373d9e4c73a36fe77bf48d2041d"},
 ]
 
 [package.dependencies]
 invoke = ">=2,<3"
-rich = ">=13,<14"
+rich = ">=13,<15"
 
 [package.extras]
 env-settings = ["python-decouple (>=3,<4)"]
@@ -186,4 +187,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = "==3.14.*"
-content-hash = "81dc7e81c0a01a6286037e768ba880ae318809504c70f046f3d502071ea3c352"
+content-hash = "785fd1f198a609ad6e51b02b16163c4e84a929d3e8c8fc777ff88bf2fd16c926"
