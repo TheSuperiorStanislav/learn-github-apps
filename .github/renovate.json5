@@ -1,4 +1,9 @@
 {
+  // Provide support for JSON schema in editors, for VSCode use
+  // https://marketplace.visualstudio.com/items?itemName=BlueGlassBlock.better-json5
+  // ext install BlueGlassBlock.better-json5
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+
   // https://docs.renovatebot.com/config-overview/#extends
   extends: [
     // https://docs.renovatebot.com/presets-config/#configbest-practices
@@ -14,9 +19,6 @@
     ":rebaseStalePrs",
   ],
 
-  // https://docs.renovatebot.com/configuration-options/#rangestrategy
-  rangeStrategy: "update-lockfile",
-
   // https://docs.renovatebot.com/configuration-options/#reviewersfromcodeowners
   reviewersFromCodeOwners: true,
 
@@ -24,21 +26,37 @@
   automerge: true,
 
   // https://docs.renovatebot.com/configuration-options/#separatemajorminor
-  separateMajorMinor: false,
+  separateMajorMinor: true,
 
   // https://docs.renovatebot.com/configuration-options/#separatemultiplemajor
-  separateMultipleMajor: false,
+  separateMultipleMajor: true,
 
   // https://docs.renovatebot.com/configuration-options/#prhourlylimit
   prHourlyLimit: 0,
 
   // https://docs.renovatebot.com/configuration-options/#addlabels
   addLabels: [
-    "automated-pr"
+    "automated-pr",
   ],
 
   // https://docs.renovatebot.com/configuration-options/#commitmessageprefix
   commitMessagePrefix: "[automated-commit]",
+
+  // https://docs.renovatebot.com/configuration-options/#lockfilemaintenance
+  // Enable regular refreshes of lock files to have the latest versions of
+  // sub dependencies. Without it, renovate will update just direct
+  // dependencies from `pyproject.toml`. The downside of this setting is that
+  // such PRs does not have any changelogs. This maintenance is very
+  // straightforward - renovate simply deletes lock file and recreate it again.
+  lockFileMaintenance: {
+    enabled: true,
+  },
+
+  // https://docs.renovatebot.com/key-concepts/scheduling/#schedule-presets
+  schedule: [
+    // https://crontab.guru/#0_21_1_*_*
+    "0 21 1 * *"
+  ],
 
   // https://docs.renovatebot.com/configuration-options/#packagerules
   // Schedules docs
@@ -51,88 +69,62 @@
       automerge: false,
       matchFileNames: [
         "pyproject.toml",
-        "uv.lock"
+        "poetry.lock",
+        "uv.lock",
       ],
-      matchPackageNames: [
-        "*"
-      ],
-      matchUpdateTypes: ["patch", "minor"],
       commitMessageTopic: "{{groupSlug}}",
-      // Remove suffix like `to v1.x.x`
-      commitMessageExtra: "",
       schedule: [
-        // https://crontab.guru/#*_21-23_*_*_2
-        "* 20-23 * * 2"
+        // https://crontab.guru/#0_21_*_*_MON
+        "0 21 * * MON"
       ],
+      // https://docs.renovatebot.com/configuration-options/#rangestrategy
+      // Use `pin` strategy that writes exact (`==`) versions to `pyproject.toml`,
+      // so lock file maintenance won't update any version of direct dependencies.
+      // It should be in sync with
+      // https://docs.astral.sh/uv/reference/settings/#add-bounds
+      rangeStrategy: "pin",
     },
     {
       groupName: "Github Actions dependencies",
       groupSlug: "github-actions",
       description: "Update github action dependencies",
       automerge: true,
-      // Disable digest pinning for github actions
+      // Disable digest pinning to avoid too much PRs
       pinDigests: false,
-      matchDepTypes: [
-        "action"
+      matchFileNames: [
+        ".github/workflows/**",
+        ".github/actions/**",
       ],
-      matchPackageNames: [
-        "*"
-      ],
-      commitMessageTopic: "{{groupSlug}}",
-      // Remove suffix like `to v1.x.x`
-      commitMessageExtra: "",
-      schedule: [
-        // https://crontab.guru/#*_21_1_*_*
-        "* 20-23 1 * *"
-      ]
+      commitMessageTopic: "{{groupSlug}}"
     },
     {
       groupName: "pre-commit hooks",
       groupSlug: "pre-commit",
       description: "Update pre-commit hooks",
       automerge: true,
-      // Disable digest pinning for hooks in `pre-commit`
+      // Disable digest pinning to avoid too much PRs
       pinDigests: false,
       matchFileNames: [
         ".pre-commit-config.yaml",
-      ],
-      matchPackageNames: [
-        "*"
-      ],
-      commitMessageTopic: "{{groupSlug}}",
-      // Remove suffix like `to v1.x.x`
-      commitMessageExtra: "",
-      schedule: [
-        // https://crontab.guru/#*_21_1_*_*
-        "* 20-23 1 * *"
       ]
     },
     {
-      groupName: "Dockerfile",
-      groupSlug: "dockerfile",
-      description: "Update dockerfile",
-      automerge: false,
-      // Disable digest pinning for Docker images
-      pinDigests: false,
+      // Updates of compose images disabled for now because
+      // it is worth trying to use the same versions of services as in
+      // all envs. Also, locally used some services that not used in deployed
+      // envs (like mailpit, minio) and there is no need to pin their versions
+      enabled: false,
       matchFileNames: [
-        "ci/docker/Dockerfile",
+        "compose.yaml",
       ],
-      matchPackageNames: [
-        "*"
-      ],
-      commitMessageTopic: "{{groupSlug}}",
-      // Remove suffix like `to v1.x.x`
-      commitMessageExtra: "",
-      schedule: [
-        // https://crontab.guru/#*_21_1_*_*
-        "* 20-23 1 * *"
-      ]
     },
     {
       groupName: "Ignored",
+      // Specify packages that should on be updated.
+      // Do not forget to add reason.
       matchPackageNames: [
       ],
       enabled: false
-    }
+    },
   ]
 }
