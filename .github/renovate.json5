@@ -55,7 +55,7 @@
   // https://docs.renovatebot.com/key-concepts/scheduling/#schedule-presets
   schedule: [
     // https://crontab.guru/#0_21_1_*_*
-    "0 21 1 * *"
+    "* 21 1 * *"
   ],
 
   // https://docs.renovatebot.com/configuration-options/#packagerules
@@ -75,7 +75,7 @@
       commitMessageTopic: "{{groupSlug}}",
       schedule: [
         // https://crontab.guru/#0_21_*_*_MON
-        "0 21 * * MON"
+        "* 21 * * MON"
       ],
       // https://docs.renovatebot.com/configuration-options/#rangestrategy
       // Use `pin` strategy that writes exact (`==`) versions to `pyproject.toml`,
