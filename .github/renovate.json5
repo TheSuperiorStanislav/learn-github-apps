@@ -55,7 +55,7 @@
   // https://docs.renovatebot.com/key-concepts/scheduling/#schedule-presets
   schedule: [
     // https://crontab.guru/#0_21_1_*_*
-    "0 21 1 * *"
+    "* 21 1 * *"
   ],
 
   // https://docs.renovatebot.com/configuration-options/#packagerules
@@ -73,6 +73,10 @@
         "uv.lock",
       ],
       commitMessageTopic: "{{groupSlug}}",
+      schedule: [
+        // https://crontab.guru/#0_21_*_*_MON
+        "* 21 * * MON"
+      ],
       // https://docs.renovatebot.com/configuration-options/#rangestrategy
       // Use `pin` strategy that writes exact (`==`) versions to `pyproject.toml`,
       // so lock file maintenance won't update any version of direct dependencies.
@@ -90,8 +94,6 @@
       matchFileNames: [
         ".github/workflows/**",
         ".github/actions/**",
-        "template/.github/workflows/**",
-        "template/.github/actions/**",
       ],
       commitMessageTopic: "{{groupSlug}}"
     },
@@ -104,7 +106,6 @@
       pinDigests: false,
       matchFileNames: [
         ".pre-commit-config.yaml",
-        "template/.pre-commit-config.yaml",
       ]
     },
     {
@@ -114,7 +115,7 @@
       // envs (like mailpit, minio) and there is no need to pin their versions
       enabled: false,
       matchFileNames: [
-        "template/compose.yaml",
+        "compose.yaml",
       ],
     },
     {
