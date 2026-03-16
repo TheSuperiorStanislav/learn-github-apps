@@ -63,7 +63,7 @@ dependencies = [
   "ipython==9.11.0",
   # Low-level library for working with images
   # https://pillow.readthedocs.io/en/stable/
-  "pillow==12.0.0",
+  "pillow==12.1.1",
   # HTML sanitizing library that escapes or strips markup and attributes
   # https://github.com/matthiask/html-sanitizer
   "html-sanitizer==2.6.0",
