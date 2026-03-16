@@ -69,8 +69,6 @@
       automerge: false,
       matchFileNames: [
         "pyproject.toml",
-        "poetry.lock",
-        "uv.lock",
       ],
       commitMessageTopic: "{{groupSlug}}",
       schedule: [
