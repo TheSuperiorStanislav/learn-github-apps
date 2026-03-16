@@ -69,7 +69,7 @@ dependencies = [
   "html-sanitizer==2.6.0",
   # Needed for faster boto3 resolution
   # https://github.com/boto/botocore/issues/2926
-  "urllib3==2.5.0",
+  "urllib3==2.6.3",
   # Database abstraction layer
   # https://pypi.org/project/psycopg-binary/
   "psycopg[binary]==3.3.3",
