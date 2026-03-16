@@ -63,18 +63,6 @@
   // https://docs.renovatebot.com/configuration-options/#schedule
   packageRules: [
     {
-      description: "Update major python dependencies",
-      automerge: false,
-      matchFileNames: [
-        "pyproject.toml",
-      ],
-      matchUpdateTypes: "major",
-      schedule: [
-        // https://crontab.guru/#0_21_*_*_MON
-        "* 21 * * MON"
-      ],
-    },
-    {
       groupName: "python dependencies",
       groupSlug: "python",
       description: "Update python dependencies",
@@ -82,7 +70,7 @@
       matchFileNames: [
         "pyproject.toml",
       ],
-      commitMessageTopic: "{{groupSlug}}",
+      commitMessageTopic: "{{groupSlug}} {{isGroup}} {{isSingleVersion}} {{depName}}",
       schedule: [
         // https://crontab.guru/#0_21_*_*_MON
         "* 21 * * MON"
