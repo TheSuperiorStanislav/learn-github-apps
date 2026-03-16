@@ -92,7 +92,7 @@
       // so lock file maintenance won't update any version of direct dependencies.
       // It should be in sync with
       // https://docs.astral.sh/uv/reference/settings/#add-bounds
-      rangeStrategy: "pin",
+      matchUpdateTypes: ["minor", "patch", "pin"]
     },
     {
       groupName: "Github Actions dependencies",
