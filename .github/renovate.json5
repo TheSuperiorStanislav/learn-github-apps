@@ -104,7 +104,7 @@
       pinDigests: false,
       matchFileNames: [
         ".pre-commit-config.yaml",
-      ]ь,
+      ],
       commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
     },
     {
