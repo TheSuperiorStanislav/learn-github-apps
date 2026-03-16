@@ -65,7 +65,7 @@
     {
       groupName: "python dependencies",
       groupSlug: "python",
-      description: "Update python dependencies group={{isGroup}} is_single={{isSingleVersion}} {{depName}}",
+      description: "Update python dependencies",
       automerge: false,
       matchFileNames: [
         "pyproject.toml",
@@ -93,7 +93,7 @@
         ".github/workflows/**",
         ".github/actions/**",
       ],
-      commitMessageTopic: "{{groupSlug}}"
+      commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
     },
     {
       groupName: "pre-commit hooks",
@@ -104,7 +104,8 @@
       pinDigests: false,
       matchFileNames: [
         ".pre-commit-config.yaml",
-      ]
+      ]ь,
+      commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
     },
     {
       // Updates of compose images disabled for now because
