@@ -12,10 +12,10 @@ dependencies = [
   # Django packages
   # Main framework
   # https://www.djangoproject.com/
-  "django==6.0.3",
+  "django==5.0.*",
   # Different useful Django utils
   # https://django-extensions.readthedocs.io/en/latest/
-  "django-extensions==4.1.0",
+  "django-extensions>=4",
   # Filter querysets dynamically
   # https://django-filter.readthedocs.io/en/stable/
   "django-filter==25.2.0",
