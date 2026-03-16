@@ -70,7 +70,7 @@
       matchFileNames: [
         "pyproject.toml",
       ],
-      commitMessageTopic: "{{groupSlug}} group={{isGroup}} is_single={{isSingleVersion}} {{depName}}",
+      commitMessageTopic: "{{#if {{isGroup}}}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
       schedule: [
         // https://crontab.guru/#0_21_*_*_MON
         "* 21 * * MON"
