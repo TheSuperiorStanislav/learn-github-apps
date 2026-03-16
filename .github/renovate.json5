@@ -64,12 +64,13 @@
   packageRules: [
     {
       groupName: "python dependencies",
-      groupSlug: "python dependencies",
+      groupSlug: "python",
       description: "Update python dependencies",
       automerge: false,
       matchFileNames: [
         "pyproject.toml",
       ],
+      matchUpdateTypes: "minor",
       commitMessageTopic: "{{groupSlug}}",
       schedule: [
         // https://crontab.guru/#0_21_*_*_MON
