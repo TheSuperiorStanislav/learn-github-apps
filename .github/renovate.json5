@@ -65,7 +65,7 @@
     {
       groupName: "python dependencies",
       groupSlug: "python",
-      description: "Update python dependencies",
+      description: "Update python dependencies group={{isGroup}} is_single={{isSingleVersion}} {{depName}}",
       automerge: false,
       matchFileNames: [
         "pyproject.toml",
