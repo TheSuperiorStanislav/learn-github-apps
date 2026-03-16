@@ -2,14 +2,12 @@
 package-mode = false
 
 [project]
-name = "learn-github-apps"
-version = "0.1.0"
-description = ""
-authors = [
-    {name = "Stanislav Khlud",email = "stanislav.khlud@saritasa.com"}
+name = "{{ subdomain }}"
+version = "0.0.0"
+classifiers = [
+  "Private :: Do Not Upload",
 ]
-readme = "README.md"
-requires-python = "==3.14.*"
+requires-python = "=={{ python_version }}.*"
 dependencies = [
     "django==5.0.0",
 ]
@@ -21,7 +19,3 @@ dev = [
 local =[
     "redis==7.2.0",
 ]
-
-[build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
