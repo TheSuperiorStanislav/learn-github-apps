@@ -31,7 +31,7 @@ dependencies = [
   # Django health check
   # This project checks for various conditions and provides reports when anomalous behavior is detected.
   # https://github.com/revsys/django-health-check
-  "django-health-check==3.24.0",
+  "django-health-check==4.1.2",
   # Utility that helps handle DATABASE_URL environment variable
   # https://github.com/jazzband/dj-database-url
   "dj-database-url==3.1.2",
