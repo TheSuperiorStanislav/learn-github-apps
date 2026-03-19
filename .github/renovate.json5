@@ -37,6 +37,7 @@
   // https://docs.renovatebot.com/configuration-options/#addlabels
   addLabels: [
     "automated-pr",
+    "auto-merge",
   ],
 
   // https://docs.renovatebot.com/configuration-options/#commitmessageprefix
@@ -50,12 +51,30 @@
   // straightforward - renovate simply deletes lock file and recreate it again.
   lockFileMaintenance: {
     enabled: true,
+    schedule: [
+      // https://crontab.guru/#*_21_*_*_WED
+      "* 21 * * WED"
+    ],
   },
 
-  // https://docs.renovatebot.com/key-concepts/scheduling/#schedule-presets
-  schedule: [
-    // https://crontab.guru/#0_21_1_*_*
-    "* 21 1 * *"
+  // https://docs.renovatebot.com/configuration-options/#vulnerabilityalerts
+  vulnerabilityAlerts: {
+    enabled: true,
+    automerge: false,
+    matchBaseBranches: [
+      "develop",
+      "staging",
+      "main",
+    ],
+  },
+
+  // https://docs.renovatebot.com/configuration-options/#ignoredeps
+  ignoreDeps: [
+    // Do not update python version in `pyproject.toml`
+    // Because of `rangeStrategy: "pin"` will
+    // pin it to the latest actual minor version, which does not seem
+    // helpful for our workflows
+    "python",
   ],
 
   // https://docs.renovatebot.com/configuration-options/#packagerules
@@ -69,10 +88,12 @@
       automerge: false,
       matchFileNames: [
         "pyproject.toml",
+        "poetry.lock",
+        "uv.lock",
       ],
       commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
       schedule: [
-        // https://crontab.guru/#0_21_*_*_MON
+        // https://crontab.guru/#*_21_*_*_MON
         "* 21 * * MON"
       ],
       // https://docs.renovatebot.com/configuration-options/#rangestrategy
@@ -83,9 +104,9 @@
       rangeStrategy: "pin",
     },
     {
-      groupName: "Github Actions dependencies",
+      groupName: "GitHub Actions dependencies",
       groupSlug: "github-actions",
-      description: "Update github action dependencies",
+      description: "Update GitHub Action dependencies",
       automerge: true,
       // Disable digest pinning to avoid too much PRs
       pinDigests: false,
@@ -94,6 +115,10 @@
         ".github/actions/**",
       ],
       commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
+      schedule: [
+        // https://crontab.guru/#*_21_1_*_*
+        "* 21 1 * *"
+      ],
     },
     {
       groupName: "pre-commit hooks",
@@ -106,6 +131,10 @@
         ".pre-commit-config.yaml",
       ],
       commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
+      schedule: [
+        // https://crontab.guru/#*_21_2_*_*
+        "* 21 2 * *"
+      ],
     },
     {
       // Updates of compose images disabled for now because
@@ -116,19 +145,6 @@
       matchFileNames: [
         "compose.yaml",
       ],
-    },
-    {
-      groupName: "Ignored",
-      // Specify packages that should on be updated.
-      // Do not forget to add reason.
-      matchPackageNames: [
-        // Do not update python version in `pyproject.toml`
-        // Because of `rangeStrategy: "pin"` will
-        // pin it to the latest actual minor version, which does not seem
-        // helpful for our workflows
-        "python",
-      ],
-      enabled: false
     },
   ]
 }
