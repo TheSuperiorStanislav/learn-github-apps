@@ -1,0 +1,156 @@
+[tool.poetry]
+package-mode = false
+
+[project]
+name = "{{ subdomain }}"
+version = "0.0.0"
+classifiers = [
+  "Private :: Do Not Upload",
+]
+requires-python = "=={{ python_version }}.*"
+dependencies = [
+  # Django packages
+  # Main framework
+  # https://www.djangoproject.com/
+  "django==5.0.0",
+  # Different useful Django utils
+  # https://django-extensions.readthedocs.io/en/latest/
+  "django-extensions==4.1",
+  # Filter querysets dynamically
+  # https://django-filter.readthedocs.io/en/stable/
+  "django-filter==25.2.0",
+  # Case insensitive model fields
+  # https://github.com/voiio/django-citext
+  "django-citext==1.0.3",
+  # Storage to AWS S3
+  # https://django-storages.readthedocs.io/en/latest/
+  "django-storages[boto3]==1.14.6",
+  # Redis cache backend for Django
+  # https://github.com/jazzband/django-redis
+  "django-redis==6.0.0",
+  # Django health check
+  # This project checks for various conditions and provides reports when anomalous behavior is detected.
+  # https://github.com/revsys/django-health-check
+  "django-health-check==4.1.2",
+  # Utility that helps handle DATABASE_URL environment variable
+  # https://github.com/jazzband/dj-database-url
+  "dj-database-url==3.1.2",
+
+  # DRF packages
+  # Django REST Framework
+  # https://www.django-rest-framework.org/
+  "djangorestframework==3.16.1",
+  # Secure token-based auth for drf
+  # https://github.com/jazzband/django-rest-knox/
+  "django-rest-knox==5.0.4",
+  # OpenApi auto specs generator
+  # https://drf-spectacular.readthedocs.io/en/latest/
+  "drf-spectacular==0.29.0",
+  # Standardize DRF API error responses with drf-spectacular support
+  # https://drf-standardized-errors.readthedocs.io/en/latest/
+  "drf-standardized-errors[openapi]==0.15.0",
+
+  # Other packages
+  # Decouple helps you to organize your settings so that you can change
+  # parameters without having to redeploy your app.
+  # https://github.com/HBNetwork/python-decouple
+  "python-decouple==3.8",
+  # Python client for Sentry
+  # https://docs.sentry.io/platforms/python/guides/django/
+  "sentry-sdk==2.54.0",
+  # Provides a rich toolkit to help you make the most of using Python interactively
+  # https://ipython.readthedocs.io/en/stable/
+  "ipython==9.11.0",
+  # Low-level library for working with images
+  # https://pillow.readthedocs.io/en/stable/
+  "pillow==12.1.1",
+  # HTML sanitizing library that escapes or strips markup and attributes
+  # https://github.com/matthiask/html-sanitizer
+  "html-sanitizer==2.6.0",
+  # Needed for faster boto3 resolution
+  # https://github.com/boto/botocore/issues/2926
+  "urllib3==2.6.3",
+  # Database abstraction layer
+  # https://pypi.org/project/psycopg-binary/
+  "psycopg[binary]==3.3.3",
+  # Celery
+  # https://docs.celeryproject.org/en/stable/
+  "celery[redis]==5.6.2",
+  # DateTime manipulation library
+  # https://arrow.readthedocs.io/en/stable/
+  "arrow==1.4.0",
+  # Prettified output in logging
+  # https://rich.readthedocs.io/en/latest/introduction.html
+  "rich==14.3.3",
+  # Convert Markdown syntax into HTML
+  # https://github.com/lepture/mistune
+  # Performance: https://github.com/lepture/mistune?tab=readme-ov-file#benchmarks
+  "mistune==3.2.0",
+
+  # Devops packages
+  # The uWSGI server as a Python module
+  # https://pypi.org/project/pyuwsgi/
+  "pyuwsgi==2.0.30.post1",
+  # uwsgitop is a top-like command that uses the uWSGI Stats Server to monitor your uwsgi application.
+  # https://pypi.org/project/uwsgitop/
+  "uwsgitop==0.12",
+]
+
+[dependency-groups]
+dev = [
+  # The Django Debug Toolbar is a configurable set of panels that display various debug information
+  # about the current request/response and when clicked, display more details about the panel's content.
+  # https://django-debug-toolbar.readthedocs.io/en/latest/
+  "django-debug-toolbar==6.2.0",
+  # Exports functions to access the IPython debugger, which features tab completion, syntax highlighting, better tracebacks
+  # https://github.com/gotcha/ipdb
+  "ipdb==0.13.13",
+]
+test = [
+  # Makes it easy to write small tests, yet scales to support complex functional testing
+  # https://github.com/pytest-dev/pytest/
+  "pytest==9.0.2",
+  # Provides useful tools for testing Django apps
+  # Docs https://pytest-django.readthedocs.io/en/latest/
+  "pytest-django==4.12.0",
+  # To run test in parallel
+  # Docs: https://pypi.org/project/pytest-xdist/
+  "pytest-xdist==3.8.0",
+  # To prettify pytest output
+  "pytest-sugar==1.1.1",
+  # Allows you to use fixtures in @pytest.mark.parametrize.
+  # https://pypi.org/project/pytest-lazy-fixtures/
+  "pytest-lazy-fixtures==1.4.0",
+  # This plugin produces coverage reports.
+  # https://pytest-cov.readthedocs.io/en/latest/index.html
+  "pytest-cov==7.0.0",
+  # Fast creating of model instances. May be used in tests
+  # https://factoryboy.readthedocs.io/en/stable/
+  "factory-boy==3.3.3",
+]
+local = [
+  # Needed to run runserver_plus
+  # https://github.com/pallets/werkzeug
+  "werkzeug==3.1.6",
+  # Provide management command to check if primary database is ready to accept
+  # connections
+  # https://github.com/painless-software/django-probes
+  "django-probes==1.8.0",
+  # Control CORS headers from within the app
+  # CORS is managed by Nginx in a production environment,
+  # but this package provides CORS for local development with a local frontend.
+  # https://pypi.org/project/django-cors-headers/
+  "django-cors-headers==4.9.0",
+  # Collection of invoke commands used by Saritasa
+  # Invoke is a Python (2.7 and 3.4+) task execution tool & library,
+  # drawing inspiration from various sources pytest to arrive at a powerful & clean feature set.
+  # http://www.pyinvoke.org/
+  # https://github.com/saritasa-nest/saritasa-python-invocations/
+  "saritasa-invocations[env-settings]==1.10.0",
+  # A framework for managing and maintaining multi-language pre-commit hooks.
+  # https://pre-commit.com/
+  "pre-commit==4.5.1",
+  # A library and CLI app for rendering project templates.
+  # https://copier.readthedocs.io/en/latest/
+  "copier==9.14.0",
+]

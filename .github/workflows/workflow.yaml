@@ -1,4 +1,4 @@
-name: Run pre-commmit hooks
+name: Run pre-commit hooks
 
 on:
   pull_request:
@@ -14,15 +14,22 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
+    - name: Set up Python
+      id: install-python
+      uses: actions/setup-python@{{ github.head_ref || github.ref_name }}
+      with:
+        python-version: ""
+        python-version-file: "pyproject.toml"
     - name: Run
       run: |
+        echo "${{ github.head_ref || github.ref_name }}"
         exit 0
-  fail:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-    - uses: actions/checkout@v4
-    - name: Run
-      run: |
-        exit 1
+  # fail:
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 10
+  #   steps:
+  #   - uses: actions/checkout@v4
+  #   - name: Run
+  #     run: |
+  #       exit 1

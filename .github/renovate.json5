@@ -1,0 +1,134 @@
+{
+  // Provide support for JSON schema in editors, for VSCode use
+  // https://marketplace.visualstudio.com/items?itemName=BlueGlassBlock.better-json5
+  // ext install BlueGlassBlock.better-json5
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+
+  // https://docs.renovatebot.com/config-overview/#extends
+  extends: [
+    // https://docs.renovatebot.com/presets-config/#configbest-practices
+    "config:best-practices",
+
+    // https://docs.renovatebot.com/presets-default/#dependencydashboard
+    ":dependencyDashboard",
+    // https://docs.renovatebot.com/presets-default/#enableprecommit
+    ":enablePreCommit",
+    // https://docs.renovatebot.com/presets-default/#enablevulnerabilityalerts
+    ":enableVulnerabilityAlerts",
+    // https://docs.renovatebot.com/presets-default/#rebasestaleprs
+    ":rebaseStalePrs",
+  ],
+
+  // https://docs.renovatebot.com/configuration-options/#reviewersfromcodeowners
+  reviewersFromCodeOwners: true,
+
+  // https://docs.renovatebot.com/configuration-options/#automerge
+  automerge: true,
+
+  // https://docs.renovatebot.com/configuration-options/#separatemajorminor
+  separateMajorMinor: true,
+
+  // https://docs.renovatebot.com/configuration-options/#separatemultiplemajor
+  separateMultipleMajor: true,
+
+  // https://docs.renovatebot.com/configuration-options/#prhourlylimit
+  prHourlyLimit: 0,
+
+  // https://docs.renovatebot.com/configuration-options/#addlabels
+  addLabels: [
+    "automated-pr",
+  ],
+
+  // https://docs.renovatebot.com/configuration-options/#commitmessageprefix
+  commitMessagePrefix: "[automated-commit]",
+
+  // https://docs.renovatebot.com/configuration-options/#lockfilemaintenance
+  // Enable regular refreshes of lock files to have the latest versions of
+  // sub dependencies. Without it, renovate will update just direct
+  // dependencies from `pyproject.toml`. The downside of this setting is that
+  // such PRs does not have any changelogs. This maintenance is very
+  // straightforward - renovate simply deletes lock file and recreate it again.
+  lockFileMaintenance: {
+    enabled: true,
+  },
+
+  // https://docs.renovatebot.com/key-concepts/scheduling/#schedule-presets
+  schedule: [
+    // https://crontab.guru/#0_21_1_*_*
+    "* 21 1 * *"
+  ],
+
+  // https://docs.renovatebot.com/configuration-options/#packagerules
+  // Schedules docs
+  // https://docs.renovatebot.com/configuration-options/#schedule
+  packageRules: [
+    {
+      groupName: "python dependencies",
+      groupSlug: "python",
+      description: "Update python dependencies",
+      automerge: false,
+      matchFileNames: [
+        "pyproject.toml",
+      ],
+      commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
+      schedule: [
+        // https://crontab.guru/#0_21_*_*_MON
+        "* 21 * * MON"
+      ],
+      // https://docs.renovatebot.com/configuration-options/#rangestrategy
+      // Use `pin` strategy that writes exact (`==`) versions to `pyproject.toml`,
+      // so lock file maintenance won't update any version of direct dependencies.
+      // It should be in sync with
+      // https://docs.astral.sh/uv/reference/settings/#add-bounds
+      rangeStrategy: "pin",
+    },
+    {
+      groupName: "Github Actions dependencies",
+      groupSlug: "github-actions",
+      description: "Update github action dependencies",
+      automerge: true,
+      // Disable digest pinning to avoid too much PRs
+      pinDigests: false,
+      matchFileNames: [
+        ".github/workflows/**",
+        ".github/actions/**",
+      ],
+      commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
+    },
+    {
+      groupName: "pre-commit hooks",
+      groupSlug: "pre-commit",
+      description: "Update pre-commit hooks",
+      automerge: true,
+      // Disable digest pinning to avoid too much PRs
+      pinDigests: false,
+      matchFileNames: [
+        ".pre-commit-config.yaml",
+      ],
+      commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
+    },
+    {
+      // Updates of compose images disabled for now because
+      // it is worth trying to use the same versions of services as in
+      // all envs. Also, locally used some services that not used in deployed
+      // envs (like mailpit, minio) and there is no need to pin their versions
+      enabled: false,
+      matchFileNames: [
+        "compose.yaml",
+      ],
+    },
+    {
+      groupName: "Ignored",
+      // Specify packages that should on be updated.
+      // Do not forget to add reason.
+      matchPackageNames: [
+        // Do not update python version in `pyproject.toml`
+        // Because of `rangeStrategy: "pin"` will
+        // pin it to the latest actual minor version, which does not seem
+        // helpful for our workflows
+        "python",
+      ],
+      enabled: false
+    },
+  ]
+}
