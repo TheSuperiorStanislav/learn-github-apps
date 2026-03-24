@@ -103,7 +103,7 @@
       groupSlug: "github-actions",
       description: "Update GitHub Action dependencies",
       automerge: true,
-      // Disable digest pinning to avoid too much PRs
+      // Disable digest pinning to avoid too many PRs
       pinDigests: false,
       matchFileNames: [
         ".github/workflows/**",
@@ -116,11 +116,27 @@
       ],
     },
     {
+      groupName: "CSS/JS in HTML",
+      groupSlug: "html",
+      description: "Update CSS/JS libraries in HTML templates",
+      automerge: true,
+      // Disable digest pinning to avoid too many PRs
+      pinDigests: false,
+      managerFilePatterns: [
+        "/\\.html?$/"
+      ],
+      commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
+      schedule: [
+        // https://crontab.guru/#*_21_1_*_*
+        "* 21 1 * *"
+      ],
+    },
+    {
       groupName: "pre-commit hooks",
       groupSlug: "pre-commit",
       description: "Update pre-commit hooks",
       automerge: true,
-      // Disable digest pinning to avoid too much PRs
+      // Disable digest pinning to avoid too many PRs
       pinDigests: false,
       matchFileNames: [
         ".pre-commit-config.yaml",
@@ -134,7 +150,7 @@
     {
       // Updates of compose images disabled for now because
       // it is worth trying to use the same versions of services as in
-      // all envs. Also, locally used some services that not used in deployed
+      // all envs. Also, locally used some services that are not used in deployed
       // envs (like mailpit, minio) and there is no need to pin their versions
       enabled: false,
       matchFileNames: [
