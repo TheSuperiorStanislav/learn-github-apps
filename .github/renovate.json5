@@ -61,11 +61,6 @@
   vulnerabilityAlerts: {
     enabled: true,
     automerge: false,
-    matchBaseBranches: [
-      "develop",
-      "staging",
-      "main",
-    ],
   },
 
   // https://docs.renovatebot.com/configuration-options/#ignoredeps
