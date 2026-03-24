@@ -122,8 +122,9 @@
       automerge: true,
       // Disable digest pinning to avoid too many PRs
       pinDigests: false,
-      managerFilePatterns: [
-        "/\\.html?$/"
+      matchFileNames: [
+        "**.html",
+        "template/**.html",
       ],
       commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
       schedule: [
