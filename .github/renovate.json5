@@ -123,8 +123,8 @@
       // Disable digest pinning to avoid too many PRs
       pinDigests: false,
       matchFileNames: [
-        "**.html",
-        "template/**.html",
+        "*.html",
+        "templates/**/*.html",
       ],
       prHeader: "Frontend updated - MANUAL CHECK REQUIRED!",
       addLabels: [
