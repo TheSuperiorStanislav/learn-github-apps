@@ -126,10 +126,7 @@
         "**.html",
         "template/**.html",
       ],
-      prHeader: "Frontend updated - MANUAL CHECK REQUIRED!",
-      prBodyNotes: [
-        "# Frontend updated - MANUAL CHECK REQUIRED!",
-      ],
+      prHeader: "# Frontend updated - MANUAL CHECK REQUIRED!",
       addLabels: [
         "manual-check-required",
       ],
