@@ -122,9 +122,7 @@
       automerge: false,
       // Disable digest pinning to avoid too many PRs
       pinDigests: false,
-      matchFileNames: [
-        ".+\.html",
-      ],
+      matchManagers: ["html"],
       prHeader: "Frontend updated - MANUAL CHECK REQUIRED!",
       addLabels: [
         "manual-check-required",
