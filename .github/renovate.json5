@@ -123,7 +123,7 @@
       // Disable digest pinning to avoid too many PRs
       pinDigests: false,
       matchManagers: ["html"],
-      prHeader: "Frontend updated - MANUAL CHECK REQUIRED!",
+      prHeader: "# Frontend updated - MANUAL CHECK REQUIRED!",
       addLabels: [
         "manual-check-required",
       ],
