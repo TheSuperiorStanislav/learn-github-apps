@@ -128,7 +128,7 @@
       ],
       prHeader: "Frontend updated - MANUAL CHECK REQUIRED!",
       prBodyNotes: [
-        "Frontend updated - MANUAL CHECK REQUIRED!",
+        "# Frontend updated - MANUAL CHECK REQUIRED!",
       ],
       addLabels: [
         "manual-check-required",
