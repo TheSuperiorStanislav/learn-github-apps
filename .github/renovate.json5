@@ -124,7 +124,7 @@
       pinDigests: false,
       matchFileNames: [
         "*.html",
-        "templates/**/*.html",
+        "templates/**/**.html",
       ],
       prHeader: "Frontend updated - MANUAL CHECK REQUIRED!",
       addLabels: [
