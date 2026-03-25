@@ -119,12 +119,16 @@
       groupName: "CSS/JS in HTML",
       groupSlug: "html",
       description: "Update CSS/JS libraries in HTML templates",
-      automerge: true,
+      automerge: false,
       // Disable digest pinning to avoid too many PRs
       pinDigests: false,
       matchFileNames: [
         "**.html",
         "template/**.html",
+      ],
+      prHeader: "Frontend updated - MANUAL CHECK REQUIRED!",
+      addLabels: [
+        "manual-check-required",
       ],
       commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
       schedule: [
