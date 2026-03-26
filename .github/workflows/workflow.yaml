@@ -15,12 +15,6 @@ jobs:
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@v6
-    - name: Set up Python
-      id: install-python
-      uses: actions/setup-python@{{ github.head_ref || github.ref_name }}
-      with:
-        python-version: ""
-        python-version-file: "pyproject.toml"
     - name: Run
       run: |
         echo "${{ github.head_ref || github.ref_name }}"
