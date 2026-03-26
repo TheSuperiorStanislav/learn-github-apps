@@ -42,6 +42,8 @@
 
   // https://docs.renovatebot.com/configuration-options/#commitmessageprefix
   commitMessagePrefix: "[automated-commit]",
+  // https://docs.renovatebot.com/configuration-options/#commitmessagetopic
+  commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
 
   // https://docs.renovatebot.com/configuration-options/#lockfilemaintenance
   // Enable regular refreshes of lock files to have the latest versions of
@@ -86,7 +88,6 @@
         "poetry.lock",
         "uv.lock",
       ],
-      commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
       schedule: [
         // https://crontab.guru/#*_21_*_*_MON
         "* 21 * * MON"
@@ -103,31 +104,12 @@
       groupSlug: "github-actions",
       description: "Update GitHub Action dependencies",
       automerge: true,
-      // Disable digest pinning to avoid too many PRs
+      // Disable digest pinning to avoid too much PRs
       pinDigests: false,
-      matchFileNames: [
-        ".github/workflows/**",
-        ".github/actions/**",
+      // https://docs.renovatebot.com/modules/manager/github-actions/
+      matchManagers: [
+        "github-actions",
       ],
-      commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
-      schedule: [
-        // https://crontab.guru/#*_21_1_*_*
-        "* 21 1 * *"
-      ],
-    },
-    {
-      groupName: "CSS/JS in HTML",
-      groupSlug: "html",
-      description: "Update CSS/JS libraries in HTML templates",
-      automerge: false,
-      // Disable digest pinning to avoid too many PRs
-      pinDigests: false,
-      matchManagers: ["html"],
-      prHeader: "# Frontend updated - MANUAL CHECK REQUIRED!",
-      addLabels: [
-        "manual-check-required",
-      ],
-      commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
       schedule: [
         // https://crontab.guru/#*_21_1_*_*
         "* 21 1 * *"
@@ -138,21 +120,42 @@
       groupSlug: "pre-commit",
       description: "Update pre-commit hooks",
       automerge: true,
-      // Disable digest pinning to avoid too many PRs
+      // Disable digest pinning to avoid too much PRs
       pinDigests: false,
-      matchFileNames: [
-        ".pre-commit-config.yaml",
+      // https://docs.renovatebot.com/modules/manager/pre-commit/
+      matchManagers: [
+        "pre-commit",
       ],
-      commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
       schedule: [
         // https://crontab.guru/#*_21_2_*_*
         "* 21 2 * *"
       ],
     },
     {
+      groupName: "CSS/JS in HTML",
+      groupSlug: "html",
+      description: "Update CSS/JS libraries in HTML templates",
+      automerge: false,
+      // Disable digest pinning to avoid too many PRs
+      pinDigests: false,
+      // Only https://cdnjs.com/ is supported for now
+      // https://docs.renovatebot.com/modules/manager/html/
+      matchManagers: [
+        "html",
+      ],
+      prHeader: "# Frontend updated - MANUAL CHECK REQUIRED!",
+      addLabels: [
+        "manual-check-required",
+      ],
+      schedule: [
+        // https://crontab.guru/#*_21_3_*_*
+        "* 21 3 * *"
+      ],
+    },
+    {
       // Updates of compose images disabled for now because
       // it is worth trying to use the same versions of services as in
-      // all envs. Also, locally used some services that are not used in deployed
+      // all envs. Also, locally used some services that not used in deployed
       // envs (like mailpit, minio) and there is no need to pin their versions
       enabled: false,
       matchFileNames: [
