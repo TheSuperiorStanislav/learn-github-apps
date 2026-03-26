@@ -1,0 +1,21 @@
+name: Run pre-commit hooks
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  success:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+    - uses: actions/checkout@v6
+    - name: Run
+      run: |
+        echo "${{ github.head_ref || github.ref_name }}"
+        exit 0
