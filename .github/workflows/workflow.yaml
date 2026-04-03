@@ -17,7 +17,7 @@ jobs:
     - uses: actions/checkout@v6
     - name: Run
       run: |
-        BUILDKIT_PROGRESS=plain docker compose up --quiet-pull localstack
+        BUILDKIT_PROGRESS=plain docker compose up --quiet-pull -d localstack
   # fail:
   #   runs-on: ubuntu-latest
   #   timeout-minutes: 10
