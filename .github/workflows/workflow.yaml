@@ -18,6 +18,7 @@ jobs:
     - name: Run
       run: |
         echo "${{ github.head_ref || github.ref_name }}"
+        BUILDKIT_PROGRESS=plain docker compose up --quiet-pull localstack
         exit 0
   # fail:
   #   runs-on: ubuntu-latest
