@@ -126,6 +126,14 @@
       matchManagers: [
         "pre-commit",
       ],
+      "postUpgradeTasks": {
+        "commands": [
+          "pre-commit run --all-files",
+        ],
+        "installTools": {
+          "pre-commit": {}
+        }
+      },
       schedule: [
         // https://crontab.guru/#*_21_2_*_*
         "* 21 2 * *"
