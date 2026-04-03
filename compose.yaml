@@ -1,4 +1,4 @@
-name: "saritasa-crm-delmar-v2-core"
+name: "test"
 
 volumes:
   minio_data:
