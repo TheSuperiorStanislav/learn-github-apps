@@ -151,6 +151,7 @@
       matchManagers: [
         "html",
       ],
+      minimumReleaseAgeBehaviour: "timestamp-optional",
       prHeader: "# Frontend updated - MANUAL CHECK REQUIRED!",
       addLabels: [
         "manual-check-required",
