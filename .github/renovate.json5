@@ -18,7 +18,7 @@
     // https://docs.renovatebot.com/presets-default/#rebasestaleprs
     ":rebaseStalePrs",
   ],
-
+  minimumReleaseAge: "1 days",
   // https://docs.renovatebot.com/configuration-options/#reviewersfromcodeowners
   reviewersFromCodeOwners: true,
 
