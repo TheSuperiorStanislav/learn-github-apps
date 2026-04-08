@@ -29,7 +29,7 @@
   separateMajorMinor: true,
 
   // https://docs.renovatebot.com/configuration-options/#separatemultiplemajor
-  separateMultipleMajor: false,
+  separateMultipleMajor: true,
 
   // https://docs.renovatebot.com/configuration-options/#prhourlylimit
   prHourlyLimit: 0,
