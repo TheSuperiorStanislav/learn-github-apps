@@ -44,7 +44,7 @@
   commitMessagePrefix: "[automated-commit]",
   // https://docs.renovatebot.com/configuration-options/#commitmessagetopic
   commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
-  branchTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
+  additionalBranchPrefix: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
 
   // https://docs.renovatebot.com/configuration-options/#lockfilemaintenance
   // Enable regular refreshes of lock files to have the latest versions of
