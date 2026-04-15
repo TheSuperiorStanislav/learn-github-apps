@@ -8,18 +8,3 @@ labels:
   - name: Needs Review
     color: FFF123
     description: Ready for review
-
-regex_labels:
-  - regex: \d+\.\d+\.\d+
-    color: FFFFFF
-    description: Version labels
-
-rulesets:
-  - name: all-branch
-    branches:
-      - ~ALL
-    rules:
-      # Prevent users with push access from force pushing
-      - type: non_fast_forward
-      # Protect branch from deletion
-      - type: deletion
