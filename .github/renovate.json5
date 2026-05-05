@@ -61,7 +61,7 @@
     ],
     // https://docs.renovatebot.com/configuration-options/#minimumreleaseagebehaviour
     // https://cdnjs.com/ doesn't have timestamps
-    minimumReleaseAgeBehaviour: "timestamp-optional",
+    // minimumReleaseAgeBehaviour: "timestamp-optional",
   },
 
   // https://docs.renovatebot.com/configuration-options/#vulnerabilityalerts
