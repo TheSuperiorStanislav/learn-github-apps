@@ -66,11 +66,11 @@ wheels = [
 
 [[package]]
 name = "redis"
-version = "6.0.0"
+version = "6.4.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/79/12/dffaaa4374b8d5f3b7ff5c40025c9db387e06264302d5a9da6043cd84e1f/redis-6.0.0.tar.gz", hash = "sha256:5446780d2425b787ed89c91ddbfa1be6d32370a636c8fdb687f11b1c26c1fa88", size = 4620969, upload-time = "2025-04-30T19:09:30.798Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/0d/d6/e8b92798a5bd67d659d51a18170e91c16ac3b59738d91894651ee255ed49/redis-6.4.0.tar.gz", hash = "sha256:b01bc7282b8444e28ec36b261df5375183bb47a07eb9c603f284e89cbc5ef010", size = 4647399, upload-time = "2025-08-07T08:10:11.441Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/08/c8/68081c9d3531f7b2a4d663326b96a9dcbc2aef47df3c6b5c38dea90dff02/redis-6.0.0-py3-none-any.whl", hash = "sha256:a2e040aee2cdd947be1fa3a32e35a956cd839cc4c1dbbe4b2cdee5b9623fd27c", size = 268950, upload-time = "2025-04-30T19:09:28.432Z" },
+    { url = "https://files.pythonhosted.org/packages/e8/02/89e2ed7e85db6c93dfa9e8f691c5087df4e3551ab39081a4d7c6d1f90e05/redis-6.4.0-py3-none-any.whl", hash = "sha256:f0544fa9604264e9464cdf4814e7d4830f74b165d52f2a330a760a88dd248b7f", size = 279847, upload-time = "2025-08-07T08:10:09.84Z" },
 ]
 
 [[package]]
@@ -88,15 +88,15 @@ wheels = [
 
 [[package]]
 name = "saritasa-invocations"
-version = "1.0.0"
+version = "1.12.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "invoke" },
     { name = "rich" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ec/b7/e26faf35eaf4e3df8ed035713da7efd21555865912f361171ba95e2dd021/saritasa_invocations-1.0.0.tar.gz", hash = "sha256:e7ae2bf6da29125d8b62bad519c38d401b6d98e4b137dad15a21b7dce4b3e1a8", size = 33828, upload-time = "2024-01-25T09:38:33.745Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/7e/94/31c6f4ffc699b058af636136f60f4a0d6795601c0211c676cba909863070/saritasa_invocations-1.12.1.tar.gz", hash = "sha256:ad3cb61852c467e528de0afd629e93de4b1983c47eb289638a8983fb8dba96c4", size = 128656, upload-time = "2026-04-28T08:33:21.764Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/7a/2b/7db9d9ad15065a0bfd5a52460a076bf8320643662a1e35d704ee4b1f756a/saritasa_invocations-1.0.0-py3-none-any.whl", hash = "sha256:92cd01c094780e67933dcca6805e0dd8716d29a877a7bb5ed87dc507ac285730", size = 34593, upload-time = "2024-01-25T09:38:30.681Z" },
+    { url = "https://files.pythonhosted.org/packages/c2/4e/46d6a9290222103a0a1a55674c6bde002ddd7ac1c74920770f5d30022ff8/saritasa_invocations-1.12.1-py3-none-any.whl", hash = "sha256:8d3389260ec6ec80de71d3f5a6d0593fff6bd0c8972adc5036a610c6e182e973", size = 39502, upload-time = "2026-04-28T08:33:23.142Z" },
 ]
 
 [[package]]
@@ -121,8 +121,8 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "django", specifier = "==5.2.13" },
-    { name = "redis", specifier = "==6.0.0" },
-    { name = "saritasa-invocations", specifier = "==1.0.0" },
+    { name = "redis", specifier = "==6.4.0" },
+    { name = "saritasa-invocations", specifier = "==1.12.1" },
 ]
 
 [[package]]
