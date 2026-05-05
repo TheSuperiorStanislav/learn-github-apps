@@ -57,15 +57,17 @@
   lockFileMaintenance: {
     enabled: true,
     schedule: [
-      // https://crontab.guru/#*_21_*_*_WED
-      "* 21 * * WED"
+      "* 21 1 * *"
     ],
+    // https://docs.renovatebot.com/configuration-options/#minimumreleaseagebehaviour
+    // https://cdnjs.com/ doesn't have timestamps
+    minimumReleaseAgeBehaviour: "timestamp-optional",
   },
 
   // https://docs.renovatebot.com/configuration-options/#vulnerabilityalerts
   vulnerabilityAlerts: {
     enabled: true,
-    automerge: false,
+    automerge: true,
   },
 
   // https://docs.renovatebot.com/configuration-options/#ignoredeps
@@ -88,12 +90,13 @@
       automerge: false,
       matchFileNames: [
         "pyproject.toml",
+        "template/pyproject.toml",
         "poetry.lock",
         "uv.lock",
       ],
       schedule: [
-        // https://crontab.guru/#*_21_*_*_MON
-        "* 21 * * MON"
+        // https://crontab.guru/#*_21_2_*_*
+        "* 21 2 * *"
       ],
       // https://docs.renovatebot.com/configuration-options/#rangestrategy
       // Use `pin` strategy that writes exact (`==`) versions to `pyproject.toml`,
@@ -114,8 +117,8 @@
         "github-actions",
       ],
       schedule: [
-        // https://crontab.guru/#*_21_1_*_*
-        "* 21 1 * *"
+        // https://crontab.guru/#*_21_3_*_*
+        "* 21 3 * *"
       ],
     },
     {
@@ -130,8 +133,8 @@
         "pre-commit",
       ],
       schedule: [
-        // https://crontab.guru/#*_21_2_*_*
-        "* 21 2 * *"
+        // https://crontab.guru/#*_21_4_*_*
+        "* 21 4 * *"
       ],
     },
     {
@@ -154,8 +157,8 @@
       // https://cdnjs.com/ doesn't have timestamps
       minimumReleaseAgeBehaviour: "timestamp-optional",
       schedule: [
-        // https://crontab.guru/#*_21_3_*_*
-        "* 21 3 * *"
+        // https://crontab.guru/#*_21_5_*_*
+        "* 21 5 * *"
       ],
     },
     {
