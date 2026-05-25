@@ -1,10 +1,226 @@
 pr_workflow_type: devops
-repository:  
-  description: |
-    This repository
-    Does stuff 121214
+repository:
+  description: Some repo
+  default_branch: main
 
 labels:
   - name: Needs Review
-    color: FFF123
-    description: Ready for review12
+    color: 008000
+    description: Ready for review
+  - name: wip
+    color: cc0000
+    description: In development
+  - name: enhancement
+    color: F0F8FF
+    description: New feature or request
+  - name: docs
+    color: EED9C4
+    description: Improvements or additions to documentation
+  - name: bug
+    color: 848482
+    description: Something isn't working
+  - name: urgent
+    color: C41E3A
+    description: Urgently for review
+  - name: security
+    color: DC143C
+    description: Security issue (or related to security in general)
+  - name: env=dev
+    color: FFBF00
+    description: Development environment
+  - name: env=staging
+    color: FFBF00
+    description: Staging environment
+  - name: env=prod
+    color: FFBF00
+    description: Production environment
+  - name: auto-update
+    color: F0F8FF
+    description: Bot PR
+  - name: renovate
+    color: F0F8FF
+    description: RenovateBot
+  - name: renovate-patch
+    color: F0F8FF
+    description: RenovateBot patch update
+  - name: renovate-minor
+    color: F0F8FF
+    description: RenovateBot minor update
+  - name: renovate-major
+    color: F0F8FF
+    description: RenovateBot major update
+  - name: automerge
+    color: F0F8FF
+    description: Renovate PR configured for automerge
+  - name: c/ai-assistant
+    color: E0DBFA
+  - name: c/ai-badge-reader
+    color: E0DBFA
+  - name: c/ai-document-processing
+    color: E0DBFA
+  - name: c/backend
+    color: E0DBFA
+  - name: c/backend/websockets
+    color: E0DBFA
+  - name: c/calendar
+    color: E0DBFA
+  - name: c/celery
+    color: E0DBFA
+  - name: c/cct-backend
+    color: E0DBFA
+  - name: c/cct-frontend
+    color: E0DBFA
+  - name: c/cms
+    color: E0DBFA
+  - name: c/firebase-functions
+    color: E0DBFA
+  - name: c/grabbers
+    color: E0DBFA
+  - name: c/keconnect
+    color: E0DBFA
+  - name: c/keyword-search
+    color: E0DBFA
+  - name: c/leads-kiosk-app
+    color: E0DBFA
+  - name: c/locust
+    color: E0DBFA
+  - name: c/shell-pod
+    color: E0DBFA
+  - name: c/spiderkeeper
+    color: E0DBFA
+  - name: c/webapp
+    color: E0DBFA
+  - name: p/airbyte
+    color: DBE5FA
+  - name: p/alb
+    color: DBE5FA
+  - name: p/argocd
+    color: DBE5FA
+  - name: p/aws-ebs-csi-driver
+    color: DBE5FA
+  - name: p/aws-efs-csi-driver
+    color: DBE5FA
+  - name: p/aws-vpc-cni
+    color: DBE5FA
+  - name: p/cert-manager
+    color: DBE5FA
+  - name: p/cilium
+    color: DBE5FA
+  - name: p/coredns
+    color: DBE5FA
+  - name: p/descheduler
+    color: DBE5FA
+  - name: p/docs
+    color: DBE5FA
+  - name: p/elasticsearch
+    color: DBE5FA
+  - name: p/external-dns
+    color: DBE5FA
+  - name: p/external-secrets-operator
+    color: DBE5FA
+  - name: p/github
+    color: DBE5FA
+  - name: p/grafana
+    color: DBE5FA
+  - name: p/ingress-nginx
+    color: DBE5FA
+  - name: p/istio
+    color: DBE5FA
+  - name: p/kafka
+    color: DBE5FA
+  - name: p/karma
+    color: DBE5FA
+  - name: p/karpenter
+    color: DBE5FA
+  - name: p/keda
+    color: DBE5FA
+  - name: p/keycloak
+    color: DBE5FA
+  - name: p/knative
+    color: DBE5FA
+  - name: p/kube-downscaler
+    color: DBE5FA
+  - name: p/kubernetes-event-exporter
+    color: DBE5FA
+  - name: p/kubewatch
+    color: DBE5FA
+  - name: p/kyverno
+    color: DBE5FA
+  - name: p/logging-operator
+    color: DBE5FA
+  - name: p/loki
+    color: DBE5FA
+  - name: p/mailpit
+    color: DBE5FA
+  - name: p/maintenance
+    color: DBE5FA
+  - name: p/metrics-server
+    color: DBE5FA
+  - name: p/mysql
+    color: DBE5FA
+  - name: p/nexus
+    color: DBE5FA
+  - name: p/opa-gatekeeper
+    color: DBE5FA
+  - name: p/opsgenie-heartbeat
+    color: DBE5FA
+  - name: p/postgresql
+    color: DBE5FA
+  - name: p/privatebin
+    color: DBE5FA
+  - name: p/prometheus
+    color: DBE5FA
+  - name: p/prometheus-statuscake-exporter
+    color: DBE5FA
+  - name: p/promtail
+    color: DBE5FA
+  - name: p/rattic
+    color: DBE5FA
+  - name: p/rbac-manager
+    color: DBE5FA
+  - name: p/rbac
+    color: DBE5FA
+  - name: p/redash
+    color: DBE5FA
+  - name: p/redis
+    color: DBE5FA
+  - name: p/reloader
+    color: DBE5FA
+  - name: p/replicator
+    color: DBE5FA
+  - name: p/reportportal
+    color: DBE5FA
+  - name: p/selenium-grid
+    color: DBE5FA
+  - name: p/sentry
+    color: DBE5FA
+  - name: p/swagger-ui
+    color: DBE5FA
+  - name: p/tekton
+    color: DBE5FA
+  - name: p/tekton/build-pipeline
+    color: DBE5FA
+  - name: p/tekton/locust-build-pipeline
+    color: DBE5FA
+  - name: p/tekton/sdk/android-build-pipeline
+    color: DBE5FA
+  - name: p/tekton/sdk/ios-build-pipeline
+    color: DBE5FA
+  - name: p/tekton/sdk/js-build-pipeline
+    color: DBE5FA
+  - name: p/tekton/sdk/python-build-pipeline
+    color: DBE5FA
+  - name: p/tekton/selenium-autotests
+    color: DBE5FA
+  - name: p/tekton/tasks
+    color: DBE5FA
+  - name: p/teleport
+    color: DBE5FA
+  - name: p/tempo
+    color: DBE5FA
+  - name: p/testkube
+    color: DBE5FA
+  - name: p/twingate
+    color: DBE5FA
+  - name: p/velero
+    color: DBE5FA
