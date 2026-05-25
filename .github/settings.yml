@@ -243,7 +243,3 @@ rulesets:
           require_code_owner_review: false
           required_approving_review_count: 0
           required_review_thread_resolution: true
-      - type: commit_author_email_pattern
-        parameters:
-          operator: contains
-          pattern: saritasa.com
