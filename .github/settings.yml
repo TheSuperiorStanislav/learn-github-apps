@@ -224,3 +224,39 @@ labels:
     color: DBE5FA
   - name: p/velero
     color: DBE5FA
+
+
+rulesets:
+  - name: branch-protection
+    target: branch
+    enforcement: active
+    conditions:
+      ref_name:
+        include:
+          - refs/heads/main
+        exclude: []
+    rules:
+      - type: deletion
+      - type: pull_request
+        parameters:
+          dismiss_stale_reviews_on_push: false
+          require_code_owner_review: false
+          required_approving_review_count: 0
+          required_review_thread_resolution: true
+      - type: commit_author_email_pattern
+        parameters:
+          operator: contains
+          pattern: saritasa.com
+  - name: push-protection
+    target: push
+    enforcement: active
+    rules:
+      - type: file_extension_restriction
+        parameters:
+          restricted_file_extensions:
+            - '*.bak'
+            - '*.zip'
+            - '*.swp'
+      - type: max_file_size
+        parameters:
+          max_file_size: 5  # file size in megabytes (MB)
