@@ -2,6 +2,7 @@ pr_workflow_type: devops
 repository:
   description: Some repo
   default_branch: main
+  allow_merge_commit: false
 
 labels:
   - name: Needs Review
