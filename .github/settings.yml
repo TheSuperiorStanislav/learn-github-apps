@@ -1,5 +1,3 @@
-settings file
----
 repository:
   description: Kubernetes infrastructure
   default_branch: main
