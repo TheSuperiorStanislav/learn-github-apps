@@ -1,8 +1,8 @@
-pr_workflow_type: devops
+settings file
+---
 repository:
-  description: Some repo
+  description: Kubernetes infrastructure
   default_branch: main
-  allow_merge_commit: false
 
 labels:
   - name: Needs Review
@@ -26,6 +26,9 @@ labels:
   - name: security
     color: DC143C
     description: Security issue (or related to security in general)
+  - name: cost
+    color: DC143C
+    description: Cost optimization issue
   - name: env=dev
     color: FFBF00
     description: Development environment
@@ -53,11 +56,17 @@ labels:
   - name: automerge
     color: F0F8FF
     description: Renovate PR configured for automerge
+  - name: tooling
+    color: 6F4E37
+    description: >-
+      Tooling updates (.github workflows, .pre-commit config, .env files etc)
   - name: c/ai-assistant
     color: E0DBFA
   - name: c/ai-badge-reader
     color: E0DBFA
   - name: c/ai-document-processing
+    color: E0DBFA
+  - name: c/autotests
     color: E0DBFA
   - name: c/backend
     color: E0DBFA
@@ -171,6 +180,8 @@ labels:
     color: DBE5FA
   - name: p/prometheus
     color: DBE5FA
+  - name: p/prometheus-cloudcost-exporter
+    color: DBE5FA
   - name: p/prometheus-statuscake-exporter
     color: DBE5FA
   - name: p/promtail
@@ -226,21 +237,16 @@ labels:
   - name: p/velero
     color: DBE5FA
 
+autolinks:
+  - key_prefix: SD
+    url_template: https://saritasa.atlassian.net/browse/SD-<num>
+  - key_prefix: US
+    url_template: https://saritasa.atlassian.net/browse/US-<num>
+  - key_prefix: USAWS
+    url_template: https://saritasa.atlassian.net/browse/USAWS-<num>
+  - key_prefix: USG
+    url_template: https://saritasa.atlassian.net/browse/USG-<num>
+  - key_prefix: USCMS
+    url_template: https://saritasa.atlassian.net/browse/USCMS-<num>
 
-rulesets:
-  - name: branch-protection
-    target: branch
-    enforcement: active
-    conditions:
-      ref_name:
-        include:
-          - refs/heads/main
-        exclude: []
-    rules:
-      - type: deletion
-      - type: pull_request
-        parameters:
-          dismiss_stale_reviews_on_push: false
-          require_code_owner_review: false
-          required_approving_review_count: 0
-          required_review_thread_resolution: true
+pr_workflow_type: devops
