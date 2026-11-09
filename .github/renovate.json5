@@ -101,7 +101,6 @@
       automerge: false,
       matchFileNames: [
         "pyproject.toml",
-        "uv.lock",
       ],
       schedule: [
         // https://crontab.guru/#*_16-23_*_*_MON
