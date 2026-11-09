@@ -66,13 +66,12 @@
   // dependencies from `pyproject.toml`. The downside of this setting is that
   // such PRs does not have any changelogs. This maintenance is very
   // straightforward - renovate simply deletes lock file and recreate it again.
+  // Note: `automerge` and `schedule` are set in `packageRules` (last rule),
+  // because `packageRules` are applied on top of this config and the
+  // "python dependencies" rule (matched via `pyproject.toml`) would
+  // override them otherwise.
   lockFileMaintenance: {
     enabled: true,
-    automerge: true,
-    schedule: [
-      // https://crontab.guru/#*_16-23_*_*_WED
-      "* 16-23 * * WED"
-    ],
   },
 
   // https://docs.renovatebot.com/configuration-options/#vulnerabilityalerts
@@ -101,6 +100,7 @@
       automerge: false,
       matchFileNames: [
         "pyproject.toml",
+        "uv.lock",
       ],
       schedule: [
         // https://crontab.guru/#*_16-23_*_*_MON
@@ -178,6 +178,20 @@
       // https://docs.renovatebot.com/modules/manager/docker-compose/
       matchManagers: [
         "docker-compose",
+      ],
+    },
+    {
+      // Must be the last rule to override settings from rules above
+      // (e.g. "python dependencies" matches lock file maintenance via
+      // `pyproject.toml` and disables automerge).
+      description: "Lock file maintenance",
+      matchUpdateTypes: [
+        "lockFileMaintenance",
+      ],
+      automerge: true,
+      schedule: [
+        // https://crontab.guru/#*_16-23_*_*_WED
+        "* 16-23 * * WED"
       ],
     },
   ]
