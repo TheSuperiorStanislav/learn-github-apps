@@ -46,7 +46,19 @@
   commitMessageTopic: "{{#if isGroup}} {{groupSlug}} {{else}} {{depName}} {{/if}}",
 
   // https://docs.renovatebot.com/configuration-options/#minimumreleaseage
+  // Global setting for whole organization is 7 days
   minimumReleaseAge: "1 day",
+  // https://docs.renovatebot.com/configuration-options/#minimumreleaseagebehaviour
+  // Release age is not well supported on lock file updates
+  // https://saritasa.slack.com/archives/C028FAE5FN1/p1776663439037479?thread_ts=1776654743.942959&cid=C028FAE5FN1
+  // https://github.com/renovatebot/renovate/discussions/38115
+  // https://github.com/renovatebot/renovate/issues/41652
+  // https://github.com/renovatebot/renovate/pull/41913
+  minimumReleaseAgeBehaviour: "timestamp-optional",
+
+  // https://docs.renovatebot.com/configuration-options/#automergestrategy
+  // Auto merge PRs without merge commits to keep history cleaner.
+  automergeStrategy: "rebase",
 
   // https://docs.renovatebot.com/configuration-options/#lockfilemaintenance
   // Enable regular refreshes of lock files to have the latest versions of
@@ -56,18 +68,17 @@
   // straightforward - renovate simply deletes lock file and recreate it again.
   lockFileMaintenance: {
     enabled: true,
+    automerge: true,
     schedule: [
-      "* 21 1 * *"
+      // https://crontab.guru/#*_16-23_*_*_WED
+      "* 16-23 * * WED"
     ],
-    // https://docs.renovatebot.com/configuration-options/#minimumreleaseagebehaviour
-    // https://cdnjs.com/ doesn't have timestamps
-    minimumReleaseAgeBehaviour: "timestamp-optional",
   },
 
   // https://docs.renovatebot.com/configuration-options/#vulnerabilityalerts
   vulnerabilityAlerts: {
     enabled: true,
-    automerge: true,
+    automerge: false,
   },
 
   // https://docs.renovatebot.com/configuration-options/#ignoredeps
@@ -90,13 +101,11 @@
       automerge: false,
       matchFileNames: [
         "pyproject.toml",
-        "template/pyproject.toml",
-        "poetry.lock",
         "uv.lock",
       ],
       schedule: [
-        // https://crontab.guru/#*_21_2_*_*
-        "* 21 2 * *"
+        // https://crontab.guru/#*_16-23_*_*_MON
+        "* 16-23 * * MON"
       ],
       // https://docs.renovatebot.com/configuration-options/#rangestrategy
       // Use `pin` strategy that writes exact (`==`) versions to `pyproject.toml`,
@@ -117,8 +126,8 @@
         "github-actions",
       ],
       schedule: [
-        // https://crontab.guru/#*_21_3_*_*
-        "* 21 3 * *"
+        // https://crontab.guru/#*_16-23_1_*_*
+        "* 16-23 1 * *"
       ],
     },
     {
@@ -133,8 +142,8 @@
         "pre-commit",
       ],
       schedule: [
-        // https://crontab.guru/#*_21_4_*_*
-        "* 21 4 * *"
+        // https://crontab.guru/#*_16-23_2_*_*
+        "* 16-23 2 * *"
       ],
     },
     {
@@ -157,15 +166,15 @@
       // https://cdnjs.com/ doesn't have timestamps
       minimumReleaseAgeBehaviour: "timestamp-optional",
       schedule: [
-        // https://crontab.guru/#*_21_5_*_*
-        "* 21 5 * *"
+        // https://crontab.guru/#*_16-23_3_*_*
+        "* 16-23 3 * *"
       ],
     },
     {
       // Updates of compose images disabled for now because
       // it is worth trying to use the same versions of services as in
       // all envs. Also, locally used some services that not used in deployed
-      // envs (like mailpit, minio) and there is no need to pin their versions
+      // envs (like mailpit, rustfs) and there is no need to pin their versions
       enabled: false,
       // https://docs.renovatebot.com/modules/manager/docker-compose/
       matchManagers: [
